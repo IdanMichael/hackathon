@@ -1,8 +1,8 @@
 {
-  "name": "hackathon",
+  "name": "Bring back dislikes",
   "description": "Returns ability to see dislikes",
-  "version": "1.0",
-  "manifest_version": 3,
+  "version": "1.0.0",
+  "manifest_version": 2,
 
   
   
@@ -14,8 +14,14 @@
       "run_at": "document_start"
     }
   ],
-  "action":{
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "browser_action":{
     "default_popup": "popup.html",
     "default_title": "Add dislikes"
-  }
+  },
+  "permissions":[
+    "storage"
+  ]
 }
