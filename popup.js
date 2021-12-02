@@ -13,24 +13,19 @@ const link = 'https://www.googleapis.com/youtube/v3/videos?part=statistics&id=' 
     .then((data) => data.json())
     .then((data) => {
 
-      likes = data.items[0].statistics.likeCount
-      dislikes = data.items[0].statistics.dislikeCount
-      
-      console.log(likes)
-      console.log(dislikes)
+      addStats(data)
     });
-function addStats (){
+
+    
+function addStats (data){
   const likeNode = document.createElement("p")
-const dislikeNode = document.createElement("p")
+  const dislikeNode = document.createElement("p")
 
-likeNode.innerText = "likes: " + likes
-dislikeNode.innerText = "dislikes: " + dislikes 
+  likeNode.innerText = "likes: " + data.items[0].statistics.likeCount
+  dislikeNode.innerText = "dislikes: " + data.items[0].statistics.dislikeCount
 
-document.body.appendChild(likeNode)
-document.body.appendChild(dislikeNode)
+  document.body.appendChild(likeNode)
+  document.body.appendChild(dislikeNode)
 
 }
 
-setTimeout(() =>{
-  addStats()
-},150)
