@@ -1,15 +1,21 @@
 {
-  "manifest_version": 3,
-  "name": "Dislikes",
-  "description": "Adds dislikes back to YouTube",
+  "name": "hackathon",
+  "description": "Returns ability to see dislikes",
   "version": "1.0",
+  "manifest_version": 3,
 
-  "content_scripts": [{
-    "matches": ["https://www.youtube.com/watch*"],
-    "js": ["main.js"],
-    "run_at": "document_start",
-    "css": ["main.css"]
-    
-  }]
+  
+  
+ 
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/watch*"],
+      "js" : ["main.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "action":{
+    "default_popup": "popup.html",
+    "default_title": "Add dislikes"
+  }
 }
-

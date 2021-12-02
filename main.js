@@ -1,7 +1,23 @@
-//fetch dislike count for a given youtube video
-//insert dislike count into youtube html
 
-document.addEventListener('DOMContentLoaded', () => {
-  const dislike = document.querySelectorAll(".style-scope ytd-toggle-button-renderer style-text")
-  console.log("test id:" , dislike)
-});
+let likes = 0;
+let dislikes = 0;
+
+
+
+const youtubeKey = "AIzaSyApjzcm86yI6joRyWIDy4QhKAxV9ghJJKQ" 
+const videoID = window.location.href.split("v=")[1]
+const link = 'https://www.googleapis.com/youtube/v3/videos?part=statistics&id=' + videoID + '&key=' + youtubeKey
+ fetch(link)
+    .then((data) => data.json())
+    .then((data) => {
+
+      likes = data.items[0].statistics.likeCount
+      dislikes = data.items[0].statistics.dislikeCount
+      
+      console.log(likes)
+      console.log(dislikes)
+    });
+console.log("hello world")
+setTimeout(() => {
+  console.log(likes)
+}, 1000)
